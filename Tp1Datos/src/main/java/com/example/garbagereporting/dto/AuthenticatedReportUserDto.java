@@ -1,0 +1,12 @@
+package com.example.garbagereporting.dto;
+
+import lombok.Builder;
+import lombok.Value;
+
+@Value
+@Builder
+public class AuthenticatedReportUserDto {
+    String userId;
+    String email;
+    String displayName;
+}

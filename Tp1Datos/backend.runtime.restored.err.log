@@ -1,0 +1,55 @@
+=8080 : El t‚rmino '=8080' no se reconoce como nombre de un cmdlet, funci¢n, archivo de script o programa ejecutable. 
+Compruebe si escribi¢ correctamente el nombre o, si incluy¢ una ruta de acceso, compruebe que dicha ruta es correcta e 
+int‚ntelo de nuevo.
+En l¡nea: 1 Car cter: 1
++ ='8080'; ='mongodb://localhost:27017/test'; ='localhost'; ='localhost ...
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (=8080:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+=mongodb://localhost:27017/test : El t‚rmino '=mongodb://localhost:27017/test' no se reconoce como nombre de un 
+cmdlet, funci¢n, archivo de script o programa ejecutable. Compruebe si escribi¢ correctamente el nombre o, si incluy¢ 
+una ruta de acceso, compruebe que dicha ruta es correcta e int‚ntelo de nuevo.
+En l¡nea: 1 Car cter: 10
++ ='8080'; ='mongodb://localhost:27017/test'; ='localhost'; ='localhost ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (=mongodb://localhost:27017/test:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+=localhost : El t‚rmino '=localhost' no se reconoce como nombre de un cmdlet, funci¢n, archivo de script o programa 
+ejecutable. Compruebe si escribi¢ correctamente el nombre o, si incluy¢ una ruta de acceso, compruebe que dicha ruta 
+es correcta e int‚ntelo de nuevo.
+En l¡nea: 1 Car cter: 45
++ ='8080'; ='mongodb://localhost:27017/test'; ='localhost'; ='localhost ...
++                                             ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (=localhost:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+=localhost : El t‚rmino '=localhost' no se reconoce como nombre de un cmdlet, funci¢n, archivo de script o programa 
+ejecutable. Compruebe si escribi¢ correctamente el nombre o, si incluy¢ una ruta de acceso, compruebe que dicha ruta 
+es correcta e int‚ntelo de nuevo.
+En l¡nea: 1 Car cter: 59
++ ... ='mongodb://localhost:27017/test'; ='localhost'; ='localhost'; ='true ...
++                                                      ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (=localhost:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+=true : El t‚rmino '=true' no se reconoce como nombre de un cmdlet, funci¢n, archivo de script o programa ejecutable. 
+Compruebe si escribi¢ correctamente el nombre o, si incluy¢ una ruta de acceso, compruebe que dicha ruta es correcta e 
+int‚ntelo de nuevo.
+En l¡nea: 1 Car cter: 73
++ ... ://localhost:27017/test'; ='localhost'; ='localhost'; ='true'; =''; S ...
++                                                           ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (=true:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+= : El t‚rmino '=' no se reconoce como nombre de un cmdlet, funci¢n, archivo de script o programa ejecutable. 
+Compruebe si escribi¢ correctamente el nombre o, si incluy¢ una ruta de acceso, compruebe que dicha ruta es correcta e 
+int‚ntelo de nuevo.
+En l¡nea: 1 Car cter: 82
++ ... calhost:27017/test'; ='localhost'; ='localhost'; ='true'; =''; Set-Lo ...
++                                                               ~~~
+    + CategoryInfo          : ObjectNotFound: (=:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+^C

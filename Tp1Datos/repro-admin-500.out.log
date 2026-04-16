@@ -1,0 +1,102 @@
+[INFO] Scanning for projects...
+Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/cyclonedx/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/flywaydb/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/io/github/git-commit-id/maven-metadata.xml
+Progress (1): 255 BProgress (2): 255 B | 249 BProgress (3): 255 B | 249 B | 243 BProgress (4): 255 B | 249 B | 243 B | 234 B                                           Downloaded from central: https://repo.maven.apache.org/maven2/org/cyclonedx/maven-metadata.xml (243 B at 244 B/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/io/github/git-commit-id/maven-metadata.xml (255 B at 256 B/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/jooq/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/maven-metadata.xml
+Downloaded from central: https://repo.maven.apache.org/maven2/org/flywaydb/maven-metadata.xml (234 B at 233 B/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/maven-metadata.xml (249 B at 248 B/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/liquibase/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/graalvm/buildtools/maven-metadata.xml
+Progress (1): 394 BProgress (2): 394 B | 375 BProgress (3): 394 B | 375 B | 242 BProgress (4): 394 B | 375 B | 242 B | 398 B                                           Downloaded from central: https://repo.maven.apache.org/maven2/org/liquibase/maven-metadata.xml (394 B at 3.1 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml
+Downloaded from central: https://repo.maven.apache.org/maven2/org/graalvm/buildtools/maven-metadata.xml (242 B at 1.8 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml
+Downloaded from central: https://repo.maven.apache.org/maven2/org/jooq/maven-metadata.xml (398 B at 2.6 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/maven-metadata.xml (375 B at 2.3 kB/s)
+Progress (1): 3.1 kBProgress (1): 7.7 kBProgress (1): 12 kB Progress (1): 17 kBProgress (1): 20 kBProgress (1): 21 kBProgress (2): 21 kB | 4.6 kBProgress (2): 21 kB | 9.7 kBProgress (2): 21 kB | 14 kB                            Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml (14 kB at 68 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml (21 kB at 57 kB/s)
+[INFO] 
+[INFO] ---------------< com.example:garbage-reporting-service >----------------
+[INFO] Building garbage-reporting-service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.0.5:run (default-cli) > test-compile @ garbage-reporting-service >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ garbage-reporting-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ garbage-reporting-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ garbage-reporting-service ---
+[INFO] skip non existing resourceDirectory C:\Proyectos\Tp1Datos\Tp1Datos\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ garbage-reporting-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:4.0.5:run (default-cli) < test-compile @ garbage-reporting-service <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.0.5:run (default-cli) @ garbage-reporting-service ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.5)
+
+2026-04-13T01:37:00.605-03:00  INFO 9168 --- [garbage-reporting-service] [           main] c.e.g.GarbageReportingApplication        : Starting GarbageReportingApplication using Java 21.0.10 with PID 9168 (C:\Proyectos\Tp1Datos\Tp1Datos\target\classes started by maxim in C:\Proyectos\Tp1Datos\Tp1Datos)
+2026-04-13T01:37:00.613-03:00  INFO 9168 --- [garbage-reporting-service] [           main] c.e.g.GarbageReportingApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-04-13T01:37:02.182-03:00  INFO 9168 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-13T01:37:02.184-03:00  INFO 9168 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-04-13T01:37:02.534-03:00  INFO 9168 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 335 ms. Found 4 MongoDB repository interfaces.
+2026-04-13T01:37:03.190-03:00  INFO 9168 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-13T01:37:03.194-03:00  INFO 9168 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-13T01:37:03.266-03:00  INFO 9168 --- [garbage-reporting-service] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.garbagereporting.repository.EmailVerificationTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-13T01:37:03.269-03:00  INFO 9168 --- [garbage-reporting-service] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.garbagereporting.repository.GarbageReportRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-13T01:37:03.271-03:00  INFO 9168 --- [garbage-reporting-service] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.garbagereporting.repository.ReportRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-13T01:37:03.273-03:00  INFO 9168 --- [garbage-reporting-service] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.garbagereporting.repository.UserAccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-13T01:37:03.273-03:00  INFO 9168 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 0 Redis repository interfaces.
+2026-04-13T01:37:04.695-03:00  INFO 9168 --- [garbage-reporting-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-04-13T01:37:04.742-03:00  INFO 9168 --- [garbage-reporting-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-13T01:37:04.744-03:00  INFO 9168 --- [garbage-reporting-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-04-13T01:37:04.937-03:00  INFO 9168 --- [garbage-reporting-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 4199 ms
+2026-04-13T01:37:06.016-03:00  INFO 9168 --- [garbage-reporting-service] [           main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|spring-boot|sync", "version": "5.6.4"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/21.0.10+8-LTS-217"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@537ca28e, com.mongodb.Jep395RecordCodecProvider@5b322873, com.mongodb.KotlinCodecProvider@35e2b89f, EnumCodecProvider{}]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2026-04-13T01:37:06.068-03:00  INFO 9168 --- [garbage-reporting-service] [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=54467800, minRoundTripTimeNanos=0}
+2026-04-13T01:37:08.461-03:00  INFO 9168 --- [garbage-reporting-service] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name mongoUserDetailsService
+2026-04-13T01:37:12.536-03:00  INFO 9168 --- [garbage-reporting-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-04-13T01:37:12.541-03:00  INFO 9168 --- [garbage-reporting-service] [           main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2026-04-13T01:37:12.705-03:00  INFO 9168 --- [garbage-reporting-service] [           main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#5e2b512b:0/SimpleConnection@90c01ab [delegate=amqp://guest@127.0.0.1:5672/, localPort=52214]
+2026-04-13T01:37:12.877-03:00  INFO 9168 --- [garbage-reporting-service] [           main] c.e.g.GarbageReportingApplication        : Started GarbageReportingApplication in 13.475 seconds (process running for 14.636)
+2026-04-13T01:37:13.344-03:00  INFO 9168 --- [garbage-reporting-service] [           main] c.e.g.config.AdminUserSeeder             : Admin user refreshed with configured credentials for email=admin@ecoruta.local
+2026-04-13T01:37:14.355-03:00  INFO 9168 --- [garbage-reporting-service] [           main] c.e.g.config.CacheWarmupCleaner          : Cache reports:today cleared at startup
+2026-04-13T01:37:14.356-03:00  INFO 9168 --- [garbage-reporting-service] [           main] c.e.g.config.CacheWarmupCleaner          : Cache routes:optimization cleared at startup
+2026-04-13T01:37:31.563-03:00  INFO 9168 --- [garbage-reporting-service] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-13T01:37:31.564-03:00  INFO 9168 --- [garbage-reporting-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-13T01:37:31.567-03:00  INFO 9168 --- [garbage-reporting-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-13T01:40:31.807-03:00  INFO 9168 --- [garbage-reporting-service] [ntContainer#0-1] c.e.g.m.c.ReportProcessingConsumer       : Processing async report requestId=6a52c076-282c-43b8-ad09-7b6d09f14bbd
+2026-04-13T01:40:31.810-03:00  INFO 9168 --- [garbage-reporting-service] [ntContainer#0-1] c.e.g.s.i.ReportProcessingServiceImpl    : Classification completed requestId=6a52c076-282c-43b8-ad09-7b6d09f14bbd originalFilename=basura_runtime.jpg isTrash=true confidence=0.92 result=Mock validation: positive filename hint
+2026-04-13T01:40:31.847-03:00  INFO 9168 --- [garbage-reporting-service] [ntContainer#0-1] c.e.g.s.i.ReportProcessingServiceImpl    : Async report persisted for requestId=6a52c076-282c-43b8-ad09-7b6d09f14bbd
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  05:14 min
+[INFO] Finished at: 2026-04-13T01:42:03-03:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.0.5:run (default-cli) on project garbage-reporting-service: Process terminated with exit code: -1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

@@ -1,0 +1,212 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.example:garbage-reporting-service >----------------
+[INFO] Building garbage-reporting-service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.0.5:run (default-cli) > test-compile @ garbage-reporting-service >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ garbage-reporting-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ garbage-reporting-service ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 76 source files with javac [debug parameters release 21] to target\classes
+[INFO] /C:/Proyectos/Tp1Datos/Tp1Datos/src/main/java/com/example/garbagereporting/exception/GlobalExceptionHandler.java: C:\Proyectos\Tp1Datos\Tp1Datos\src\main\java\com\example\garbagereporting\exception\GlobalExceptionHandler.java uses or overrides a deprecated API.
+[INFO] /C:/Proyectos/Tp1Datos/Tp1Datos/src/main/java/com/example/garbagereporting/exception/GlobalExceptionHandler.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ garbage-reporting-service ---
+[INFO] skip non existing resourceDirectory C:\Proyectos\Tp1Datos\Tp1Datos\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ garbage-reporting-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] <<< spring-boot:4.0.5:run (default-cli) < test-compile @ garbage-reporting-service <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.0.5:run (default-cli) @ garbage-reporting-service ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.5)
+
+2026-04-12T16:49:38.659-03:00  INFO 3872 --- [garbage-reporting-service] [           main] c.e.g.GarbageReportingApplication        : Starting GarbageReportingApplication using Java 21.0.10 with PID 3872 (C:\Proyectos\Tp1Datos\Tp1Datos\target\classes started by maxim in C:\Proyectos\Tp1Datos\Tp1Datos)
+2026-04-12T16:49:38.668-03:00  INFO 3872 --- [garbage-reporting-service] [           main] c.e.g.GarbageReportingApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-04-12T16:49:40.154-03:00  INFO 3872 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-12T16:49:40.157-03:00  INFO 3872 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-04-12T16:49:40.467-03:00  INFO 3872 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 296 ms. Found 4 MongoDB repository interfaces.
+2026-04-12T16:49:41.047-03:00  INFO 3872 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-12T16:49:41.049-03:00  INFO 3872 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-12T16:49:41.125-03:00  INFO 3872 --- [garbage-reporting-service] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.garbagereporting.repository.EmailVerificationTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-12T16:49:41.129-03:00  INFO 3872 --- [garbage-reporting-service] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.garbagereporting.repository.GarbageReportRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-12T16:49:41.132-03:00  INFO 3872 --- [garbage-reporting-service] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.garbagereporting.repository.ReportRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-12T16:49:41.134-03:00  INFO 3872 --- [garbage-reporting-service] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.garbagereporting.repository.UserAccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-12T16:49:41.134-03:00  INFO 3872 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 0 Redis repository interfaces.
+2026-04-12T16:49:42.746-03:00  INFO 3872 --- [garbage-reporting-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8085 (http)
+2026-04-12T16:49:42.778-03:00  INFO 3872 --- [garbage-reporting-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-12T16:49:42.779-03:00  INFO 3872 --- [garbage-reporting-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-04-12T16:49:42.961-03:00  INFO 3872 --- [garbage-reporting-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 4168 ms
+2026-04-12T16:49:43.820-03:00  INFO 3872 --- [garbage-reporting-service] [           main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|spring-boot|sync", "version": "5.6.4"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/21.0.10+8-LTS-217"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@7f1f60a0, com.mongodb.Jep395RecordCodecProvider@77ea806f, com.mongodb.KotlinCodecProvider@71b26880, EnumCodecProvider{}]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2026-04-12T16:49:43.911-03:00  INFO 3872 --- [garbage-reporting-service] [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=80221800, minRoundTripTimeNanos=0}
+2026-04-12T16:49:45.123-03:00  INFO 3872 --- [garbage-reporting-service] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name mongoUserDetailsService
+2026-04-12T16:49:50.447-03:00  INFO 3872 --- [garbage-reporting-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8085 (http) with context path '/'
+2026-04-12T16:49:50.453-03:00  INFO 3872 --- [garbage-reporting-service] [           main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2026-04-12T16:49:50.607-03:00  INFO 3872 --- [garbage-reporting-service] [           main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#73234691:0/SimpleConnection@48d24d63 [delegate=amqp://guest@127.0.0.1:5672/, localPort=52845]
+2026-04-12T16:49:50.742-03:00  INFO 3872 --- [garbage-reporting-service] [           main] c.e.g.GarbageReportingApplication        : Started GarbageReportingApplication in 13.241 seconds (process running for 14.259)
+2026-04-12T16:49:51.159-03:00  INFO 3872 --- [garbage-reporting-service] [           main] c.e.g.config.AdminUserSeeder             : Admin user refreshed with configured credentials for email=admin@ecoruta.local
+2026-04-12T16:50:06.271-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-12T16:50:06.272-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-12T16:50:06.275-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-04-12T16:50:08.463-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-3] c.e.g.service.impl.RouteServiceImpl      : Route request scope=active validReports=4
+2026-04-12T16:50:08.475-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-3] c.e.g.service.impl.RouteServiceImpl      : Route optimization scope=active waypointCount=4 waypoints=[RouteCoordinateDto(lat=-31.420083, lng=-64.188776), RouteCoordinateDto(lat=-31.420083, lng=-64.188776), RouteCoordinateDto(lat=-31.408448, lng=-64.183803), RouteCoordinateDto(lat=-31.419141, lng=-64.169769)]
+2026-04-12T16:50:08.517-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-3] c.e.g.s.impl.OsrmRoadRoutingService      : OSRM request provider=osrm waypointCount=4 payload=https://router.project-osrm.org/route/v1/driving/-64.188776,-31.420083;-64.188776,-31.420083;-64.183803,-31.408448;-64.169769,-31.419141?overview=full&geometries=geojson&steps=false
+2026-04-12T16:50:11.932-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-3] c.e.g.s.impl.OsrmRoadRoutingService      : OSRM raw response={"code":"Ok","routes":[{"legs":[{"steps":[],"weight":0,"summary":"","duration":0,"distance":0},{"steps":[],"weight":373.8,"summary":"","duration":373.8,"distance":3425},{"steps":[],"weight":305.9,"summary":"","duration":305.9,"distance":2560.9}],"weight_name":"routability","geometry":{"coordinates":[[-64.188708,-31.420082],[-64.188708,-31.420082],[-64.188708,-31.420086],[-64.18871,-31.420127],[-64.188717,-31.420178],[-64.188727,-31.42023],[-64.188737,-31.420284],[-64.188734,-31.420338],[-64.188686,-31.420476],[-64.188602,-31.420666],[-64.188447,-31.420996],[-64.188216,-31.421509],[-64.188139,-31.421536],[-64.187971,-31.421596],[-64.187883,-31.421621],[-64.186582,-31.422025],[-64.185253,-31.422438],[-64.185197,-31.422455],[-64.183898,-31.422858],[-64.182631,-31.423252],[-64.182447,-31.422805],[-64.182417,-31.42273],[-64.182381,-31.422643],[-64.182244,-31.42231],[-64.182096,-31.421946],[-64.182055,-31.421848],[-64.181996,-31.421707],[-64.181525,-31.420577],[-64.181044,-31.419435],[-64.180579,-31.418327],[-64.180572,-31.418311],[-64.180565,-31.418294],[-64.18008,-31.417168],[-64.179602,-31.416049],[-64.17914,-31.41493],[-64.179101,-31.414847],[-64.179079,-31.414799],[-64.178639,-31.413739],[-64.178175,-31.412602],[-64.177656,-31.411342],[-64.177203,-31.410228],[-64.176765,-31.409209],[-64.176694,-31.40916],[-64.176344,-31.408326],[-64.176286,-31.408226],[-64.176389,-31.408131],[-64.176494,-31.408041],[-64.176623,-31.40794],[-64.176705,-31.407879],[-64.17677,-31.407829],[-64.176886,-31.407747],[-64.177037,-31.407642],[-64.177306,-31.407461],[-64.177415,-31.407379],[-64.17751,-31.407317],[-64.177787,-31.407161],[-64.178057,-31.407009],[-64.178307,-31.406867],[-64.178602,-31.406715],[-64.178777,-31.40663],[-64.178911,-31.406575],[-64.179084,-31.406512],[-64.179264,-31.406453],[-64.17945,-31.406403],[-64.179636,-31.406357],[-64.179939,-31.406291],[-64.180083,-31.406266],[-64.180207,-31.406255],[-64.180372,-31.406246],[-64.180498,-31.406249],[-64.180712,-31.406258],[-64.18091,-31.406268],[-64.181098,-31.406277],[-64.181286,-31.406288],[-64.181463,-31.406307],[-64.181582,-31.406323],[-64.181673,-31.40634],[-64.181779,-31.40637],[-64.181914,-31.406412],[-64.182061,-31.406469],[-64.18221,-31.406533],[-64.182417,-31.406621],[-64.182621,-31.406708],[-64.182813,-31.406796],[-64.183038,-31.406889],[-64.183151,-31.406925],[-64.183262,-31.406951],[-64.183339,-31.40717],[-64.183389,-31.407298],[-64.183645,-31.407908],[-64.183726,-31.408102],[-64.183788,-31.408253],[-64.183863,-31.408429],[-64.183949,-31.408629],[-64.184257,-31.409361],[-64.184512,-31.409966],[-64.184637,-31.410262],[-64.184804,-31.410657],[-64.185051,-31.411241],[-64.185126,-31.411418],[-64.185292,-31.411809],[-64.185342,-31.411932],[-64.185385,-31.412057],[-64.185484,-31.412275],[-64.185509,-31.412336],[-64.185656,-31.412688],[-64.185718,-31.412838],[-64.185737,-31.412882],[-64.185687,-31.412897],[-64.185375,-31.412988],[-64.185282,-31.413016],[-64.18518,-31.413046],[-64.185128,-31.413061],[-64.185099,-31.413069],[-64.185038,-31.413087],[-64.184988,-31.413102],[-64.184883,-31.413133],[-64.184383,-31.413279],[-64.184349,-31.413289],[-64.183851,-31.413435],[-64.183045,-31.413671],[-64.18243,-31.413853],[-64.18188,-31.414019],[-64.181724,-31.414065],[-64.181685,-31.414077],[-64.18146,-31.414144],[-64.181359,-31.414174],[-64.181164,-31.414232],[-64.181022,-31.414275],[-64.180699,-31.414371],[-64.180387,-31.414464],[-64.180033,-31.41457],[-64.179898,-31.41461],[-64.179678,-31.414675],[-64.179101,-31.414847],[-64.179061,-31.414859],[-64.17902,-31.41487],[-64.178233,-31.415127],[-64.178093,-31.415172],[-64.177774,-31.415275],[-64.177318,-31.415408],[-64.177083,-31.415482],[-64.176994,-31.415509],[-64.176922,-31.41553],[-64.176467,-31.415664],[-64.176184,-31.415764],[-64.176043,-31.415814],[-64.175744,-31.41592],[-64.175585,-31.415975],[-64.17545,-31.416022],[-64.175207,-31.416089],[-64.174904,-31.416136],[-64.174827,-31.416126],[-64.174646,-31.416086],[-64.173295,-31.415758],[-64.173248,-31.415759],[-64.173217,-31.415765],[-64.173194,-31.41578],[-64.173174,-31.415806],[-64.172804,-31.416776],[-64.172611,-31.417293],[-64.172427,-31.417796],[-64.172362,-31.417972],[-64.172035,-31.418849],[-64.171933,-31.419136],[-64.171764,-31.419611],[-64.171555,-31.420193],[-64.171544,-31.420214],[-64.171526,-31.420233],[-64.171474,-31.420241],[-64.170779,-31.42029],[-64.170746,-31.420173],[-64.170627,-31.419765],[-64.170494,-31.419232],[-64.169836,-31.419371]],"type":"LineString"},"weight":679.7,"duration":679.7,"distance":5985.9}],"waypoints":[{"hint":"jCPrh____38CAAAAAwAAAAAAAAAPAAAA0W2xQGAT4z4AAAAALSbhQQIAAAADAAAAAAAAAA8AAAC2kAAA3I4s_E6RIP6Yjiz8TZEg_gAAPwsAAAAA","location":[-64.188708,-31.420082],"name":"Avenida Vélez Sarsfield","distance":6.46625978},{"hint":"jCPrh____38CAAAAAwAAAAAAAAAPAAAA0W2xQGAT4z4AAAAALSbhQQIAAAADAAAAAAAAAA8AAAC2kAAA3I4s_E6RIP6Yjiz8TZEg_gAAPwsAAAAA","location":[-64.188708,-31.420082],"name":"Avenida Vélez Sarsfield","distance":6.46625978},{"hint":"8r9Ng____38XAAAAMgAAAAAAAAAAAAAAAzamQSIUvUEAAAAAAAAAABcAAAAyAAAAAAAAAAAAAAC2kAAAyaEs_NO-IP4Foiz8wL4g_gAAjwwAAAAA","location":[-64.183863,-31.408429],"name":"Avenida General Paz","distance":6.081236563},{"hint":"IN5jg____39IAAAAbgAAAAAAAAAAAAAAD92AQqNnBkIAAAAAAAAAAEgAAABuAAAAAAAAAAAAAAC2kAAAlNgs_BWUIP7X2Cz8-5Qg_gAAfwYAAAAA","location":[-64.169836,-31.419371],"name":"Pasaje Laurencena","distance":26.28525599}]}
+2026-04-12T16:50:12.083-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-3] c.e.g.s.impl.OsrmRoadRoutingService      : OSRM parsed geometryPoints=175 firstGeometryPoint=RouteCoordinateDto(lat=-31.420082, lng=-64.188708) lastGeometryPoint=RouteCoordinateDto(lat=-31.419371, lng=-64.169836) distanceMeters=5985.9
+2026-04-12T16:50:12.085-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-3] c.e.g.service.impl.RouteServiceImpl      : Route routing scope=active status=success provider=osrm geometryPoints=175 firstGeometryPoint=RouteCoordinateDto(lat=-31.420082, lng=-64.188708) lastGeometryPoint=RouteCoordinateDto(lat=-31.419371, lng=-64.169836) totalDistanceKm=5.9859
+2026-04-12T16:56:45.642-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-5] c.e.g.service.impl.RouteServiceImpl      : Route request scope=active validReports=5
+2026-04-12T16:56:45.644-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-5] c.e.g.service.impl.RouteServiceImpl      : Route optimization scope=active waypointCount=5 waypoints=[RouteCoordinateDto(lat=-31.420083, lng=-64.188776), RouteCoordinateDto(lat=-31.420083, lng=-64.188776), RouteCoordinateDto(lat=-31.421853, lng=-64.182086), RouteCoordinateDto(lat=-31.419141, lng=-64.169769), RouteCoordinateDto(lat=-31.408448, lng=-64.183803)]
+2026-04-12T16:56:45.645-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-5] c.e.g.s.impl.OsrmRoadRoutingService      : OSRM request provider=osrm waypointCount=5 payload=https://router.project-osrm.org/route/v1/driving/-64.188776,-31.420083;-64.188776,-31.420083;-64.182086,-31.421853;-64.169769,-31.419141;-64.183803,-31.408448?overview=full&geometries=geojson&steps=false
+2026-04-12T16:56:47.473-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-5] c.e.g.s.impl.OsrmRoadRoutingService      : OSRM raw response={"code":"Ok","routes":[{"legs":[{"steps":[],"weight":0,"summary":"","duration":0,"distance":0},{"steps":[],"weight":127.7,"summary":"","duration":127.7,"distance":900.3},{"steps":[],"weight":298.8,"summary":"","duration":298.8,"distance":2423.4},{"steps":[],"weight":335,"summary":"","duration":335,"distance":2894.8}],"weight_name":"routability","geometry":{"coordinates":[[-64.188708,-31.420082],[-64.188708,-31.420082],[-64.188708,-31.420086],[-64.18871,-31.420127],[-64.188717,-31.420178],[-64.188727,-31.42023],[-64.188737,-31.420284],[-64.188734,-31.420338],[-64.188686,-31.420476],[-64.188602,-31.420666],[-64.188447,-31.420996],[-64.188216,-31.421509],[-64.188139,-31.421536],[-64.187971,-31.421596],[-64.187883,-31.421621],[-64.186582,-31.422025],[-64.185253,-31.422438],[-64.185197,-31.422455],[-64.183898,-31.422858],[-64.182631,-31.423252],[-64.182447,-31.422805],[-64.182417,-31.42273],[-64.182381,-31.422643],[-64.182244,-31.42231],[-64.182096,-31.421946],[-64.182055,-31.421848],[-64.182082,-31.421841],[-64.183332,-31.421513],[-64.183646,-31.421431],[-64.184303,-31.421259],[-64.184705,-31.421154],[-64.184491,-31.420636],[-64.184265,-31.420104],[-64.184136,-31.419798],[-64.184126,-31.419775],[-64.183666,-31.418688],[-64.183648,-31.418647],[-64.18233,-31.419045],[-64.182312,-31.419051],[-64.181115,-31.419413],[-64.181044,-31.419435],[-64.180966,-31.41946],[-64.180946,-31.419465],[-64.180482,-31.418341],[-64.180474,-31.418322],[-64.179989,-31.417196],[-64.178731,-31.417563],[-64.177442,-31.417938],[-64.176418,-31.418242],[-64.176092,-31.418339],[-64.176043,-31.418567],[-64.175681,-31.418546],[-64.175453,-31.418519],[-64.175356,-31.418508],[-64.175318,-31.418503],[-64.175277,-31.418498],[-64.175043,-31.418475],[-64.174945,-31.418467],[-64.174766,-31.418473],[-64.174675,-31.41849],[-64.174541,-31.418536],[-64.174429,-31.418561],[-64.174371,-31.418558],[-64.174318,-31.418544],[-64.174261,-31.418539],[-64.173646,-31.418453],[-64.173588,-31.418448],[-64.173508,-31.418415],[-64.173417,-31.418377],[-64.173211,-31.418274],[-64.172625,-31.417982],[-64.172498,-31.41788],[-64.172427,-31.417796],[-64.172362,-31.417972],[-64.172035,-31.418849],[-64.171933,-31.419136],[-64.171764,-31.419611],[-64.171555,-31.420193],[-64.171544,-31.420214],[-64.171526,-31.420233],[-64.171474,-31.420241],[-64.170779,-31.42029],[-64.170746,-31.420173],[-64.170627,-31.419765],[-64.170494,-31.419232],[-64.169836,-31.419371],[-64.169493,-31.419444],[-64.16962,-31.419959],[-64.170627,-31.419765],[-64.170494,-31.419232],[-64.170363,-31.418712],[-64.170115,-31.417644],[-64.170012,-31.4172],[-64.170005,-31.417131],[-64.170385,-31.416104],[-64.170425,-31.416115],[-64.171602,-31.416442],[-64.172804,-31.416776],[-64.173174,-31.415806],[-64.173183,-31.415781],[-64.173201,-31.415733],[-64.173225,-31.415653],[-64.173232,-31.415629],[-64.17327,-31.415516],[-64.173579,-31.414623],[-64.173605,-31.414529],[-64.173615,-31.414453],[-64.173654,-31.413511],[-64.17366,-31.413187],[-64.173634,-31.413054],[-64.173513,-31.412641],[-64.173488,-31.412535],[-64.173492,-31.412464],[-64.1735,-31.412425],[-64.173545,-31.412373],[-64.173614,-31.412389],[-64.173793,-31.412409],[-64.173999,-31.412403],[-64.174162,-31.412382],[-64.174325,-31.412345],[-64.17514,-31.412102],[-64.175289,-31.41206],[-64.175322,-31.410785],[-64.17534,-31.410167],[-64.175369,-31.409806],[-64.175381,-31.409678],[-64.175399,-31.409567],[-64.17541,-31.409501],[-64.175426,-31.409421],[-64.175446,-31.409334],[-64.175475,-31.409241],[-64.175509,-31.409158],[-64.175567,-31.409047],[-64.17564,-31.408932],[-64.175706,-31.408844],[-64.175778,-31.40875],[-64.175872,-31.408645],[-64.176007,-31.408498],[-64.176157,-31.408346],[-64.176286,-31.408226],[-64.176389,-31.408131],[-64.176494,-31.408041],[-64.176623,-31.40794],[-64.176705,-31.407879],[-64.17677,-31.407829],[-64.176886,-31.407747],[-64.177037,-31.407642],[-64.177306,-31.407461],[-64.177415,-31.407379],[-64.17751,-31.407317],[-64.177787,-31.407161],[-64.178057,-31.407009],[-64.178307,-31.406867],[-64.178602,-31.406715],[-64.178777,-31.40663],[-64.178911,-31.406575],[-64.179084,-31.406512],[-64.179264,-31.406453],[-64.17945,-31.406403],[-64.179636,-31.406357],[-64.179939,-31.406291],[-64.180083,-31.406266],[-64.180207,-31.406255],[-64.180372,-31.406246],[-64.180498,-31.406249],[-64.180712,-31.406258],[-64.18091,-31.406268],[-64.181098,-31.406277],[-64.181286,-31.406288],[-64.181463,-31.406307],[-64.181582,-31.406323],[-64.181673,-31.40634],[-64.181779,-31.40637],[-64.181914,-31.406412],[-64.182061,-31.406469],[-64.18221,-31.406533],[-64.182417,-31.406621],[-64.182621,-31.406708],[-64.182813,-31.406796],[-64.183038,-31.406889],[-64.183151,-31.406925],[-64.183262,-31.406951],[-64.183339,-31.40717],[-64.183389,-31.407298],[-64.183645,-31.407908],[-64.183726,-31.408102],[-64.183788,-31.408253],[-64.183863,-31.408429]],"type":"LineString"},"weight":761.5,"duration":761.5,"distance":6218.5}],"waypoints":[{"hint":"jCPrh____38CAAAAAwAAAAAAAAAPAAAA0W2xQGAT4z4AAAAALSbhQQIAAAADAAAAAAAAAA8AAAC2kAAA3I4s_E6RIP6Yjiz8TZEg_gAAPwsAAAAA","location":[-64.188708,-31.420082],"name":"Avenida Vélez Sarsfield","distance":6.46625978},{"hint":"jCPrh____38CAAAAAwAAAAAAAAAPAAAA0W2xQGAT4z4AAAAALSbhQQIAAAADAAAAAAAAAA8AAAC2kAAA3I4s_E6RIP6Yjiz8TZEg_gAAPwsAAAAA","location":[-64.188708,-31.420082],"name":"Avenida Vélez Sarsfield","distance":6.46625978},{"hint":"-6h3hv___38CAAAAjwAAAAAAAAAAAAAAx6MrQCOT-EIAAAAAAAAAAAIAAACPAAAAAAAAAAAAAAC2kAAAvqgs_G-KIP66qCz8Y4og_gAA_xEAAAAA","location":[-64.182082,-31.421841],"name":"Boulevard Arturo Illia","distance":1.383808187},{"hint":"IN5jg____39IAAAAbgAAAAAAAAAAAAAAD92AQqNnBkIAAAAAAAAAAEgAAABuAAAAAAAAAAAAAAC2kAAAlNgs_BWUIP7X2Cz8-5Qg_gAAfwYAAAAA","location":[-64.169836,-31.419371],"name":"Pasaje Laurencena","distance":26.28525599},{"hint":"8r9Ng____38XAAAAMgAAAAAAAAAAAAAAAzamQSIUvUEAAAAAAAAAABcAAAAyAAAAAAAAAAAAAAC2kAAAyaEs_NO-IP4Foiz8wL4g_gAAjwwAAAAA","location":[-64.183863,-31.408429],"name":"Avenida General Paz","distance":6.081236563}]}
+2026-04-12T16:56:47.477-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-5] c.e.g.s.impl.OsrmRoadRoutingService      : OSRM parsed geometryPoints=188 firstGeometryPoint=RouteCoordinateDto(lat=-31.420082, lng=-64.188708) lastGeometryPoint=RouteCoordinateDto(lat=-31.408429, lng=-64.183863) distanceMeters=6218.5
+2026-04-12T16:56:47.478-03:00  INFO 3872 --- [garbage-reporting-service] [nio-8085-exec-5] c.e.g.service.impl.RouteServiceImpl      : Route routing scope=active status=success provider=osrm geometryPoints=188 firstGeometryPoint=RouteCoordinateDto(lat=-31.420082, lng=-64.188708) lastGeometryPoint=RouteCoordinateDto(lat=-31.408429, lng=-64.183863) totalDistanceKm=6.2185
+2026-04-12T21:05:25.530-03:00  INFO 3872 --- [garbage-reporting-service] [ioEventLoop-4-2] i.lettuce.core.protocol.CommandHandler   : null Unexpected exception during request: java.net.SocketException: Connection reset
+
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:401) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:434) ~[na:na]
+	at io.netty.buffer.AdaptivePoolingAllocator$AdaptiveByteBuf.setBytes(AdaptivePoolingAllocator.java:2002) ~[netty-buffer-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1139) ~[netty-buffer-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:161) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:445) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysOptimized(NioIoHandler.java:571) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:512) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1195) ~[netty-common-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.2.12.Final.jar:4.2.12.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-04-12T21:05:25.530-03:00  INFO 3872 --- [garbage-reporting-service] [ioEventLoop-4-1] i.lettuce.core.protocol.CommandHandler   : null Unexpected exception during request: java.net.SocketException: Connection reset
+
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:401) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:434) ~[na:na]
+	at io.netty.buffer.AdaptivePoolingAllocator$AdaptiveByteBuf.setBytes(AdaptivePoolingAllocator.java:2002) ~[netty-buffer-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1139) ~[netty-buffer-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:161) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:445) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysOptimized(NioIoHandler.java:571) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:512) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1195) ~[netty-common-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.2.12.Final.jar:4.2.12.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-04-12T21:05:25.797-03:00  INFO 3872 --- [garbage-reporting-service] [xecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost/127.0.0.1:6379
+2026-04-12T21:05:25.797-03:00  INFO 3872 --- [garbage-reporting-service] [xecutorLoop-1-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost/127.0.0.1:6379
+2026-04-12T21:05:25.908-03:00  WARN 3872 --- [garbage-reporting-service] [ 127.0.0.1:5672] c.r.c.impl.ForgivingExceptionHandler     : An unexpected connection driver error occurred (Exception message: Connection reset)
+2026-04-12T21:05:25.942-03:00  WARN 3872 --- [garbage-reporting-service] [ioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost/<unresolved>:6379]: Connection reset
+
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:401) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:434) ~[na:na]
+	at io.netty.buffer.AdaptivePoolingAllocator$AdaptiveByteBuf.setBytes(AdaptivePoolingAllocator.java:2002) ~[netty-buffer-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1139) ~[netty-buffer-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:161) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:445) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysOptimized(NioIoHandler.java:571) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:512) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1195) ~[netty-common-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.2.12.Final.jar:4.2.12.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-04-12T21:05:25.962-03:00  WARN 3872 --- [garbage-reporting-service] [ioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost/<unresolved>:6379]: Connection reset
+
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:401) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:434) ~[na:na]
+	at io.netty.buffer.AdaptivePoolingAllocator$AdaptiveByteBuf.setBytes(AdaptivePoolingAllocator.java:2002) ~[netty-buffer-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1139) ~[netty-buffer-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:161) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:445) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysOptimized(NioIoHandler.java:571) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:512) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196) ~[netty-transport-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1195) ~[netty-common-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.2.12.Final.jar:4.2.12.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.2.12.Final.jar:4.2.12.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-04-12T21:05:25.994-03:00  INFO 3872 --- [garbage-reporting-service] [localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:809) ~[mongodb-driver-core-5.6.4.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:857) ~[mongodb-driver-core-5.6.4.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:517) ~[mongodb-driver-core-5.6.4.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:469) ~[mongodb-driver-core-5.6.4.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitor.doHeartbeat(DefaultServerMonitor.java:311) ~[mongodb-driver-core-5.6.4.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitor.lookupServerDescription(DefaultServerMonitor.java:262) ~[mongodb-driver-core-5.6.4.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitor.run(DefaultServerMonitor.java:203) ~[mongodb-driver-core-5.6.4.jar:na]
+Caused by: java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:318) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796) ~[na:na]
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1099) ~[na:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:182) ~[mongodb-driver-core-5.6.4.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:824) ~[mongodb-driver-core-5.6.4.jar:na]
+	... 5 common frames omitted
+
+2026-04-12T21:05:26.036-03:00  INFO 3872 --- [garbage-reporting-service] [localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.lambda$open$0(SocketStream.java:85) ~[mongodb-driver-core-5.6.4.jar:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403) ~[na:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:85) ~[mongodb-driver-core-5.6.4.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:233) ~[mongodb-driver-core-5.6.4.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitor.setupNewConnectionAndGetInitialDescription(DefaultServerMonitor.java:282) ~[mongodb-driver-core-5.6.4.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitor.lookupServerDescription(DefaultServerMonitor.java:253) ~[mongodb-driver-core-5.6.4.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitor.run(DefaultServerMonitor.java:203) ~[mongodb-driver-core-5.6.4.jar:na]
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:690) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:76) ~[mongodb-driver-core-5.6.4.jar:na]
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:104) ~[mongodb-driver-core-5.6.4.jar:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:79) ~[mongodb-driver-core-5.6.4.jar:na]
+	... 4 common frames omitted
+

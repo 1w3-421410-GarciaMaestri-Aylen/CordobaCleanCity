@@ -1,0 +1,25 @@
+:root {
+  --font-main: "Plus Jakarta Sans", "Segoe UI", "Helvetica Neue", sans-serif;
+  --bg-0: #f3f9f8;
+  --bg-1: #ebf5fb;
+  --surface: #ffffff;
+  --surface-soft: rgba(255, 255, 255, 0.88);
+  --border-soft: #d5e5e3;
+  --text-main: #17313f;
+  --text-muted: #58717d;
+  --text-strong: #112733;
+  --green-700: #1b7869;
+  --green-600: #219585;
+  --green-300: #def4ee;
+  --blue-700: #245f86;
+  --blue-500: #2f83bc;
+  --blue-300: #dceefa;
+  --warning-300: #f9e9bd;
+  --danger-300: #f9d6d8;
+  --radius-2xl: 24px;
+  --radius-xl: 18px;
+  --radius-lg: 14px;
+  --radius-md: 12px;
+  --shadow-soft: 0 14px 40px rgba(17, 60, 80, 0.14);
+  --shadow-xs: 0 6px 18px rgba(18, 57, 75, 0.09);
+}

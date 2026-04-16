@@ -1,0 +1,65 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.example:garbage-reporting-service >----------------
+[INFO] Building garbage-reporting-service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.0.5:run (default-cli) > test-compile @ garbage-reporting-service >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ garbage-reporting-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ garbage-reporting-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ garbage-reporting-service ---
+[INFO] skip non existing resourceDirectory C:\Proyectos\Tp1Datos\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ garbage-reporting-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:4.0.5:run (default-cli) < test-compile @ garbage-reporting-service <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.0.5:run (default-cli) @ garbage-reporting-service ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.5)
+
+2026-04-02T19:07:13.627-03:00  INFO 28556 --- [garbage-reporting-service] [           main] c.e.g.GarbageReportingApplication        : Starting GarbageReportingApplication using Java 21.0.10 with PID 28556 (C:\Proyectos\Tp1Datos\target\classes started by loren in C:\Proyectos\Tp1Datos)
+2026-04-02T19:07:13.630-03:00  INFO 28556 --- [garbage-reporting-service] [           main] c.e.g.GarbageReportingApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-04-02T19:07:14.019-03:00  INFO 28556 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-02T19:07:14.021-03:00  INFO 28556 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-04-02T19:07:14.101-03:00  INFO 28556 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 4 MongoDB repository interfaces.
+2026-04-02T19:07:14.254-03:00  INFO 28556 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-02T19:07:14.257-03:00  INFO 28556 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-02T19:07:14.272-03:00  INFO 28556 --- [garbage-reporting-service] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.garbagereporting.repository.EmailVerificationTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-02T19:07:14.273-03:00  INFO 28556 --- [garbage-reporting-service] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.garbagereporting.repository.GarbageReportRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-02T19:07:14.273-03:00  INFO 28556 --- [garbage-reporting-service] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.garbagereporting.repository.ReportRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-02T19:07:14.274-03:00  INFO 28556 --- [garbage-reporting-service] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.garbagereporting.repository.UserAccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-02T19:07:14.274-03:00  INFO 28556 --- [garbage-reporting-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2026-04-02T19:07:14.636-03:00  INFO 28556 --- [garbage-reporting-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-04-02T19:07:14.646-03:00  INFO 28556 --- [garbage-reporting-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-02T19:07:14.647-03:00  INFO 28556 --- [garbage-reporting-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-04-02T19:07:14.681-03:00  INFO 28556 --- [garbage-reporting-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1019 ms
+2026-04-02T19:07:14.877-03:00  INFO 28556 --- [garbage-reporting-service] [           main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|spring-boot|sync", "version": "5.6.4"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/21.0.10+8-LTS-217"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@7ead1d80, com.mongodb.Jep395RecordCodecProvider@1d1bf7bf, com.mongodb.KotlinCodecProvider@1182413a, EnumCodecProvider{}]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2026-04-02T19:07:14.892-03:00  INFO 28556 --- [garbage-reporting-service] [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=11772000, minRoundTripTimeNanos=0}
+2026-04-02T19:07:15.176-03:00  INFO 28556 --- [garbage-reporting-service] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name mongoUserDetailsService
+2026-04-02T19:07:16.099-03:00  INFO 28556 --- [garbage-reporting-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-04-02T19:07:16.102-03:00  INFO 28556 --- [garbage-reporting-service] [           main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2026-04-02T19:07:16.134-03:00  INFO 28556 --- [garbage-reporting-service] [           main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#2295566b:0/SimpleConnection@712594f4 [delegate=amqp://guest@127.0.0.1:5672/, localPort=49948]
+2026-04-02T19:07:16.184-03:00  INFO 28556 --- [garbage-reporting-service] [           main] c.e.g.GarbageReportingApplication        : Started GarbageReportingApplication in 2.851 seconds (process running for 3.107)
+2026-04-02T19:07:16.322-03:00  INFO 28556 --- [garbage-reporting-service] [           main] c.e.g.config.AdminUserSeeder             : Admin user refreshed with configured credentials for email=admin@ecoruta.local
+2026-04-02T19:07:35.476-03:00  INFO 28556 --- [garbage-reporting-service] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-02T19:07:35.478-03:00  INFO 28556 --- [garbage-reporting-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-02T19:07:35.479-03:00  INFO 28556 --- [garbage-reporting-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-02T19:07:42.590-03:00  INFO 28556 --- [garbage-reporting-service] [nio-8080-exec-7] c.e.g.s.impl.LoggingEmailSenderService   : MOCK verification email -> to=test46330@ecoruta.local from=no-reply@ecoruta.local link=http://localhost:5173/verify-email/confirm?token=816e6d04-1841-441e-914e-c2c19367ff27-6b844db0-b340-4f06-b320-2c7c772a07cd
