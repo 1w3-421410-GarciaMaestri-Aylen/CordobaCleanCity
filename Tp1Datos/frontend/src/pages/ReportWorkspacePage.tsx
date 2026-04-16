@@ -8,10 +8,11 @@ import { LocationPickerOverlay } from "../components/LocationPickerOverlay";
 import { MapOverlay } from "../components/MapOverlay";
 import { StatusBanner } from "../components/StatusBanner";
 import { type GeoPoint, isInsideCordobaCapital } from "../constants/location";
-import { fetchAllReports, fetchOptimalRoute, fetchTodayReports, submitReport } from "../services/api";
+import { fetchAdminReports, fetchAllReports, fetchOptimalRoute, fetchTodayReports, submitReport } from "../services/api";
 import { reverseGeocodeCordoba, searchCordobaAddressSuggestions, type GeocodingSuggestion } from "../services/geocoding";
 import { ApiError } from "../services/httpClient";
 import type {
+  AdminReportDto,
   OptimalRouteResponse,
   ReportDto,
   ReportSource,
@@ -22,6 +23,14 @@ import type {
 const ADDRESS_DEBOUNCE_MS = 400;
 const REVERSE_GEOCODE_DEBOUNCE_MS = 450;
 const MAX_ADDRESS_SUGGESTIONS = 10;
+const ROUTE_OPERABLE_STATUSES = new Set(["PROCESSED_VALID", "CONFIRMED", "PROCESSED"]);
+
+type LastRouteSnapshot = {
+  scope: RouteScope;
+  route: OptimalRouteResponse;
+  pendingReportIds: string[];
+  startPoint: GeoPoint;
+};
 
 function toUiMessage(error: unknown, fallback: string): UiMessage {
   if (error instanceof ApiError || error instanceof Error) {
@@ -33,6 +42,39 @@ function toUiMessage(error: unknown, fallback: string): UiMessage {
 function parseCoordinate(value: string): number | null {
   const numericValue = Number(value);
   return Number.isFinite(numericValue) ? numericValue : null;
+}
+
+function buildLocalSubmissionKey(image: File, lat: number, lng: number): string {
+  return [image.name, image.size, image.lastModified, lat.toFixed(6), lng.toFixed(6)].join("|");
+}
+
+function isSameLocalDay(dateIso: string): boolean {
+  const parsed = new Date(dateIso);
+  if (Number.isNaN(parsed.getTime())) {
+    return false;
+  }
+  const now = new Date();
+  return (
+    parsed.getFullYear() === now.getFullYear()
+    && parsed.getMonth() === now.getMonth()
+    && parsed.getDate() === now.getDate()
+  );
+}
+
+function collectPendingRouteReportIds(reports: AdminReportDto[], scope: RouteScope): string[] {
+  return reports
+    .filter((report) => report.adminStatus === "PENDING")
+    .filter((report) => ROUTE_OPERABLE_STATUSES.has(report.status))
+    .filter((report) => scope === "active" || isSameLocalDay(report.createdAt))
+    .map((report) => report.id)
+    .sort();
+}
+
+function areSameIds(left: string[], right: string[]): boolean {
+  if (left.length !== right.length) {
+    return false;
+  }
+  return left.every((id, index) => id === right[index]);
 }
 
 export function ReportWorkspacePage(): JSX.Element {
@@ -53,20 +95,27 @@ export function ReportWorkspacePage(): JSX.Element {
   const [selectedPoint, setSelectedPoint] = useState<GeoPoint | null>(null);
   const [mapOpen, setMapOpen] = useState(false);
   const [loadingSubmit, setLoadingSubmit] = useState(false);
+  const [lastSuccessfulSubmissionKey, setLastSuccessfulSubmissionKey] = useState<string | null>(null);
   const [message, setMessage] = useState<UiMessage | null>(null);
 
   const [adminPanelOpen, setAdminPanelOpen] = useState(false);
   const [adminMapOpen, setAdminMapOpen] = useState(false);
   const [adminRouteStartPickerOpen, setAdminRouteStartPickerOpen] = useState(false);
+  const [routeReuseDialogOpen, setRouteReuseDialogOpen] = useState(false);
   const [adminRouteStartPoint, setAdminRouteStartPoint] = useState<GeoPoint | null>(null);
+  const [pendingRouteReportIdsCandidate, setPendingRouteReportIdsCandidate] = useState<string[]>([]);
+  const [lastRouteSnapshot, setLastRouteSnapshot] = useState<LastRouteSnapshot | null>(null);
   const [adminReports, setAdminReports] = useState<ReportDto[]>([]);
   const [adminRoute, setAdminRoute] = useState<OptimalRouteResponse | null>(null);
   const [adminReportSource, setAdminReportSource] = useState<ReportSource>("today");
   const [adminRouteScope, setAdminRouteScope] = useState<RouteScope>("today");
   const [loadingAdminReports, setLoadingAdminReports] = useState(false);
   const [loadingAdminRoute, setLoadingAdminRoute] = useState(false);
+  const [checkingAdminRouteReuse, setCheckingAdminRouteReuse] = useState(false);
 
   const skipCoordinateSyncRef = useRef(false);
+  const submitInFlightRef = useRef(false);
+  const routeActionInFlightRef = useRef(false);
   const searchAbortRef = useRef<AbortController | null>(null);
   const reverseAbortRef = useRef<AbortController | null>(null);
   const searchTimerRef = useRef<number | null>(null);
@@ -87,6 +136,10 @@ export function ReportWorkspacePage(): JSX.Element {
       }
     };
   }, []);
+
+  useEffect(() => {
+    setLastSuccessfulSubmissionKey(null);
+  }, [selectedImage, latitude, longitude]);
 
   const scheduleReverseGeocode = (point: GeoPoint): void => {
     reverseAbortRef.current?.abort();
@@ -248,7 +301,12 @@ export function ReportWorkspacePage(): JSX.Element {
     }
   };
 
-  const generateAdminRoute = async (startPoint: GeoPoint): Promise<void> => {
+  const resolvePendingRouteReportIds = async (scope: RouteScope): Promise<string[]> => {
+    const reports = await fetchAdminReports();
+    return collectPendingRouteReportIds(reports, scope);
+  };
+
+  const generateAdminRoute = async (startPoint: GeoPoint, pendingReportIdsSnapshot: string[]): Promise<void> => {
     if (!isInsideCordobaCapital(startPoint)) {
       setMessage({ type: "warning", text: "La ubicacion inicial debe estar dentro de Cordoba Capital." });
       return;
@@ -269,6 +327,12 @@ export function ReportWorkspacePage(): JSX.Element {
       });
       setAdminRoute(nextRoute);
       setAdminRouteStartPoint(startPoint);
+      setLastRouteSnapshot({
+        scope: adminRouteScope,
+        route: nextRoute,
+        pendingReportIds: [...pendingReportIdsSnapshot],
+        startPoint
+      });
       setAdminPanelOpen(false);
       setAdminMapOpen(true);
       if (nextRoute.orderedPoints.length === 0) {
@@ -294,9 +358,70 @@ export function ReportWorkspacePage(): JSX.Element {
     setAdminRouteStartPickerOpen(true);
   };
 
+  const maybeOpenRouteReuseDialog = (pendingReportIds: string[]): boolean => {
+    if (!lastRouteSnapshot) {
+      return false;
+    }
+    if (lastRouteSnapshot.scope !== adminRouteScope) {
+      return false;
+    }
+    if (!areSameIds(lastRouteSnapshot.pendingReportIds, pendingReportIds)) {
+      return false;
+    }
+
+    setPendingRouteReportIdsCandidate(pendingReportIds);
+    setRouteReuseDialogOpen(true);
+    return true;
+  };
+
+  const handleGenerateRouteRequest = async (): Promise<void> => {
+    if (loadingAdminRoute || checkingAdminRouteReuse || routeActionInFlightRef.current) {
+      return;
+    }
+
+    routeActionInFlightRef.current = true;
+    setCheckingAdminRouteReuse(true);
+    try {
+      const pendingReportIds = await resolvePendingRouteReportIds(adminRouteScope);
+      if (pendingReportIds.length === 0) {
+        setMessage({ type: "warning", text: "No hay reportes pendientes para generar ruta de recoleccion." });
+        return;
+      }
+
+      setPendingRouteReportIdsCandidate(pendingReportIds);
+      if (maybeOpenRouteReuseDialog(pendingReportIds)) {
+        return;
+      }
+
+      openAdminRouteStartPicker();
+    } catch (error) {
+      setMessage(toUiMessage(error, "No se pudo validar el estado actual de reportes para generar la ruta."));
+    } finally {
+      setCheckingAdminRouteReuse(false);
+      routeActionInFlightRef.current = false;
+    }
+  };
+
   const confirmAdminRouteStart = async (point: GeoPoint): Promise<void> => {
     setAdminRouteStartPickerOpen(false);
-    await generateAdminRoute(point);
+    await generateAdminRoute(point, pendingRouteReportIdsCandidate);
+  };
+
+  const reopenLastRoute = (): void => {
+    if (!lastRouteSnapshot) {
+      return;
+    }
+    setAdminRoute(lastRouteSnapshot.route);
+    setAdminRouteStartPoint(lastRouteSnapshot.startPoint);
+    setAdminPanelOpen(false);
+    setAdminMapOpen(true);
+    setRouteReuseDialogOpen(false);
+    setMessage({ type: "info", text: "Mostrando la ultima ruta generada sin recalcular." });
+  };
+
+  const requestNewRouteFromDialog = (): void => {
+    setRouteReuseDialogOpen(false);
+    openAdminRouteStartPicker();
   };
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -348,6 +473,9 @@ export function ReportWorkspacePage(): JSX.Element {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
+    if (submitInFlightRef.current || loadingSubmit) {
+      return;
+    }
 
     if (!selectedImage) {
       setMessage({ type: "warning", text: "Selecciona una imagen o saca una foto antes de enviar." });
@@ -374,6 +502,16 @@ export function ReportWorkspacePage(): JSX.Element {
       return;
     }
 
+    const nextSubmissionKey = buildLocalSubmissionKey(selectedImage, lat, lng);
+    if (lastSuccessfulSubmissionKey === nextSubmissionKey) {
+      setMessage({
+        type: "warning",
+        text: "Este reporte ya fue enviado desde esta pantalla. Cambia imagen o ubicacion para cargar uno nuevo."
+      });
+      return;
+    }
+
+    submitInFlightRef.current = true;
     setLoadingSubmit(true);
     try {
       await submitReport({
@@ -382,6 +520,7 @@ export function ReportWorkspacePage(): JSX.Element {
         lat,
         lng
       });
+      setLastSuccessfulSubmissionKey(nextSubmissionKey);
       if (isAdmin) {
         await refreshAdminReports(false, adminReportSource);
       }
@@ -392,6 +531,7 @@ export function ReportWorkspacePage(): JSX.Element {
     } catch (error) {
       setMessage(toUiMessage(error, "No se pudo enviar el reporte."));
     } finally {
+      submitInFlightRef.current = false;
       setLoadingSubmit(false);
     }
   };
@@ -534,7 +674,7 @@ export function ReportWorkspacePage(): JSX.Element {
           </button>
 
           <button type="submit" className="btn btn-primary" disabled={loadingSubmit || !selectedImage}>
-            {loadingSubmit ? "Enviando..." : "Enviar reporte"}
+            {loadingSubmit ? "Enviando..." : "Mandar reporte"}
           </button>
         </form>
       </main>
@@ -556,16 +696,19 @@ export function ReportWorkspacePage(): JSX.Element {
             routePoints={adminRoute?.orderedPoints.length ?? 0}
             totalDistanceKm={adminRoute?.totalDistanceKm ?? 0}
             loadingReports={loadingAdminReports}
-            loadingRoute={loadingAdminRoute}
+            loadingRoute={loadingAdminRoute || checkingAdminRouteReuse}
             onClose={() => setAdminPanelOpen(false)}
             onReportSourceChange={(value) => {
               setAdminReportSource(value);
               void refreshAdminReports(false, value);
             }}
-            onRouteScopeChange={setAdminRouteScope}
+            onRouteScopeChange={(value) => {
+              setAdminRouteScope(value);
+              setRouteReuseDialogOpen(false);
+            }}
             onRefreshReports={() => refreshAdminReports(true)}
             onGenerateRoute={async () => {
-              openAdminRouteStartPicker();
+              await handleGenerateRouteRequest();
             }}
           />
 
@@ -593,6 +736,37 @@ export function ReportWorkspacePage(): JSX.Element {
           }}
           loadingConfirm={loadingAdminRoute}
         />
+      )}
+
+      {isAdmin && routeReuseDialogOpen && (
+        <div className="admin-panel-backdrop" role="presentation" onClick={() => setRouteReuseDialogOpen(false)}>
+          <aside
+            className="admin-panel route-reuse-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Reutilizacion de ruta"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <header className="admin-panel-header">
+              <div>
+                <h2>Ruta existente</h2>
+                <p>Ya existe una ruta generada con los mismos reportes pendientes.</p>
+              </div>
+            </header>
+
+            <div className="route-reuse-actions">
+              <button type="button" className="btn btn-secondary" onClick={reopenLastRoute}>
+                Volver a ver la ultima ruta
+              </button>
+              <button type="button" className="btn btn-accent" onClick={requestNewRouteFromDialog}>
+                Generar una nueva ruta
+              </button>
+              <button type="button" className="btn btn-outline" onClick={() => setRouteReuseDialogOpen(false)}>
+                Cancelar
+              </button>
+            </div>
+          </aside>
+        </div>
       )}
     </div>
   );

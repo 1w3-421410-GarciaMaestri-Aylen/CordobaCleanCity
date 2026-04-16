@@ -19,11 +19,17 @@ import com.example.garbagereporting.repository.ReportRepository;
 import com.example.garbagereporting.service.ImageStorageService;
 import com.example.garbagereporting.service.ReportService;
 import com.example.garbagereporting.service.RouteService;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.HexFormat;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
@@ -39,12 +45,15 @@ public class ReportServiceImpl implements ReportService {
             ReportStatus.CONFIRMED,
             ReportStatus.PROCESSED
     );
+    private static final long DUPLICATE_WINDOW_MILLIS = 8_000;
 
     private final ReportRepository reportRepository;
     private final ReportMapper reportMapper;
     private final ImageStorageService imageStorageService;
     private final ReportProcessingProducer reportProcessingProducer;
     private final RouteService routeService;
+    private final ConcurrentHashMap<String, Instant> inFlightSubmissions = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, Instant> recentAcceptedSubmissions = new ConcurrentHashMap<>();
 
     @Override
     public ReportSubmissionResponseDto submitReportForProcessing(
@@ -58,56 +67,70 @@ public class ReportServiceImpl implements ReportService {
             throw new BusinessValidationException("authenticated user context is required");
         }
 
-        String imageUrl = imageStorageService.store(request.getImage());
-        String requestId = UUID.randomUUID().toString();
+        String submissionFingerprint = buildSubmissionFingerprint(request, authenticatedUser);
         Instant now = Instant.now();
+        cleanupExpiredSubmissionEntries(now);
+        if (isRecentAcceptedDuplicate(submissionFingerprint, now)) {
+            throw new BusinessValidationException("Se detecto un envio duplicado inmediato del mismo reporte.");
+        }
+        if (inFlightSubmissions.putIfAbsent(submissionFingerprint, now) != null) {
+            throw new BusinessValidationException("El mismo reporte ya se esta enviando. Espera unos segundos.");
+        }
 
-        Report pendingReport = Report.builder()
-                .requestId(requestId)
-                .userId(authenticatedUser.getUserId())
-                .userEmail(authenticatedUser.getEmail())
-                .user(authenticatedUser.getDisplayName())
-                .imageUrl(imageUrl)
-                .location(Location.builder()
-                        .lat(request.getLat())
-                        .lng(request.getLng())
-                        .build())
-                .createdAt(now)
-                .status(ReportStatus.PENDING)
-                .adminStatus(AdminReportStatus.PENDING)
-                .adminStatusUpdatedAt(now)
-                .classificationResult("Procesando imagen")
-                .isTrash(false)
-                .build();
-        reportRepository.save(pendingReport);
-        evictTodayReportsCache();
-        log.info(
-                "Report queued requestId={} userId={} lat={} lng={} imageUrl={}",
-                requestId,
-                authenticatedUser.getUserId(),
-                request.getLat(),
-                request.getLng(),
-                imageUrl
-        );
+        try {
+            String imageUrl = imageStorageService.store(request.getImage());
+            String requestId = UUID.randomUUID().toString();
 
-        reportProcessingProducer.publish(ReportProcessingEvent.builder()
-                .requestId(requestId)
-                .userId(authenticatedUser.getUserId())
-                .userEmail(authenticatedUser.getEmail())
-                .userDisplayName(authenticatedUser.getDisplayName())
-                .imageUrl(imageUrl)
-                .originalFilename(request.getImage().getOriginalFilename())
-                .lat(request.getLat())
-                .lng(request.getLng())
-                .submittedAt(now)
-                .build());
+            Report pendingReport = Report.builder()
+                    .requestId(requestId)
+                    .userId(authenticatedUser.getUserId())
+                    .userEmail(authenticatedUser.getEmail())
+                    .user(authenticatedUser.getDisplayName())
+                    .imageUrl(imageUrl)
+                    .location(Location.builder()
+                            .lat(request.getLat())
+                            .lng(request.getLng())
+                            .build())
+                    .createdAt(now)
+                    .status(ReportStatus.PENDING)
+                    .adminStatus(AdminReportStatus.PENDING)
+                    .adminStatusUpdatedAt(now)
+                    .classificationResult("Procesando imagen")
+                    .isTrash(false)
+                    .build();
+            reportRepository.save(pendingReport);
+            evictTodayReportsCache();
+            log.info(
+                    "Report queued requestId={} userId={} lat={} lng={} imageUrl={}",
+                    requestId,
+                    authenticatedUser.getUserId(),
+                    request.getLat(),
+                    request.getLng(),
+                    imageUrl
+            );
 
-        return ReportSubmissionResponseDto.builder()
-                .requestId(requestId)
-                .status("QUEUED")
-                .message("Imagen recibida y registrada para procesamiento asincrono")
-                .imageUrl(imageUrl)
-                .build();
+            reportProcessingProducer.publish(ReportProcessingEvent.builder()
+                    .requestId(requestId)
+                    .userId(authenticatedUser.getUserId())
+                    .userEmail(authenticatedUser.getEmail())
+                    .userDisplayName(authenticatedUser.getDisplayName())
+                    .imageUrl(imageUrl)
+                    .originalFilename(request.getImage().getOriginalFilename())
+                    .lat(request.getLat())
+                    .lng(request.getLng())
+                    .submittedAt(now)
+                    .build());
+
+            recentAcceptedSubmissions.put(submissionFingerprint, Instant.now());
+            return ReportSubmissionResponseDto.builder()
+                    .requestId(requestId)
+                    .status("QUEUED")
+                    .message("Imagen recibida y registrada para procesamiento asincrono")
+                    .imageUrl(imageUrl)
+                    .build();
+        } finally {
+            inFlightSubmissions.remove(submissionFingerprint);
+        }
     }
 
     @Override
@@ -186,5 +209,38 @@ public class ReportServiceImpl implements ReportService {
     @Override
     @CacheEvict(cacheNames = CacheNames.REPORTS_TODAY, allEntries = true)
     public void evictTodayReportsCache() {
+    }
+
+    private String buildSubmissionFingerprint(ReportCreateRequestDto request, AuthenticatedReportUserDto authenticatedUser) {
+        String imageHash = computeSha256(request);
+        String coordinates = String.format(Locale.US, "%.6f|%.6f", request.getLat(), request.getLng());
+        return String.join("|", authenticatedUser.getUserId(), coordinates, imageHash);
+    }
+
+    private String computeSha256(ReportCreateRequestDto request) {
+        try {
+            byte[] content = request.getImage().getBytes();
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            digest.update(content);
+            return HexFormat.of().formatHex(digest.digest());
+        } catch (IOException ex) {
+            throw new BusinessValidationException("No se pudo leer la imagen para validar duplicados.");
+        } catch (NoSuchAlgorithmException ex) {
+            throw new IllegalStateException("SHA-256 algorithm is not available", ex);
+        }
+    }
+
+    private boolean isRecentAcceptedDuplicate(String submissionFingerprint, Instant now) {
+        Instant lastAcceptedAt = recentAcceptedSubmissions.get(submissionFingerprint);
+        if (lastAcceptedAt == null) {
+            return false;
+        }
+        return lastAcceptedAt.isAfter(now.minusMillis(DUPLICATE_WINDOW_MILLIS));
+    }
+
+    private void cleanupExpiredSubmissionEntries(Instant now) {
+        Instant threshold = now.minusMillis(DUPLICATE_WINDOW_MILLIS);
+        recentAcceptedSubmissions.entrySet().removeIf(entry -> entry.getValue().isBefore(threshold));
+        inFlightSubmissions.entrySet().removeIf(entry -> entry.getValue().isBefore(threshold));
     }
 }

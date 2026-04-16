@@ -1002,6 +1002,15 @@ select:focus {
   gap: 10px;
 }
 
+.route-reuse-panel {
+  width: min(520px, 100%);
+}
+
+.route-reuse-actions {
+  display: grid;
+  gap: 10px;
+}
+
 .admin-reports-root {
   align-items: flex-start;
 }
