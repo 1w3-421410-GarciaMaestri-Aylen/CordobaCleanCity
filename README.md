@@ -67,7 +67,8 @@ El sistema está diseñado bajo un enfoque desacoplado y orientado a eventos:
 
 ## 🛠️ Tecnologías Utilizadas
 
-* **Lenguajes:** (Java + Node.js)
+* **Lenguajes:** Java + TypeScript
+                 
 * **Bases de Datos:**
 
   * Redis (almacenamiento temporal y procesamiento rápido)
